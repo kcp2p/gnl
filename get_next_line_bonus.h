@@ -6,14 +6,14 @@
 /*   By: krchuaip <krchuaip@student.42bangkok.      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 16:28:09 by krchuaip          #+#    #+#             */
-/*   Updated: 2023/09/03 23:28:28 by krchuaip         ###   ########.fr       */
+/*   Updated: 2023/09/05 18:12:26 by krchuaip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_BONUS_H
 # define GET_NEXT_LINE_BONUS_H
 
-# define FD_MAX	1000
+# define FD_MAX	1024
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 42
 # endif
