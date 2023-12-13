@@ -6,7 +6,7 @@
 /*   By: krchuaip <krchuaip@student.42bangkok.      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 16:28:09 by krchuaip          #+#    #+#             */
-/*   Updated: 2023/09/05 18:12:20 by krchuaip         ###   ########.fr       */
+/*   Updated: 2023/12/13 19:45:30 by krchuaip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 # define GET_NEXT_LINE_H
 
 # define FD_MAX	1024
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 42
+# ifndef GNL_BUFFER_SIZE
+#  define GNL_BUFFER_SIZE 256
 # endif
 
 # include <unistd.h>
@@ -28,7 +28,7 @@
 
 typedef struct s_token
 {
-	char			buff[BUFFER_SIZE];
+	char			buff[GNL_BUFFER_SIZE];
 	struct s_token	*next;
 	size_t			nbyte;
 }	t_token;

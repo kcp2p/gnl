@@ -6,7 +6,7 @@
 /*   By: krchuaip <krchuaip@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 16:27:48 by krchuaip          #+#    #+#             */
-/*   Updated: 2023/09/04 00:11:38 by krchuaip         ###   ########.fr       */
+/*   Updated: 2023/12/13 19:44:49 by krchuaip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	read_next(t_state *fd_state)
 	}
 	fd_state->token_size++;
 	fd_state->end_token->nbyte = \
-		read(fd_state->fd, fd_state->end_token->buff, BUFFER_SIZE);
+		read(fd_state->fd, fd_state->end_token->buff, GNL_BUFFER_SIZE);
 	if (fd_state->end_token->nbyte == 0)
 		fd_state->eof = 1;
 }
@@ -49,7 +49,7 @@ void	get_next_line_byte(t_state *fd_state)
 	token = fd_state->token;
 	while (token->nbyte)
 	{
-		index = (fd_state->nl_bytes + fd_state->offset) % BUFFER_SIZE;
+		index = (fd_state->nl_bytes + fd_state->offset) % GNL_BUFFER_SIZE;
 		if (index > token->nbyte - 1)
 			return ;
 		if (token->buff[index] == '\n')
@@ -58,7 +58,7 @@ void	get_next_line_byte(t_state *fd_state)
 			return ;
 		}
 		fd_state->nl_bytes++;
-		if (index == BUFFER_SIZE - 1)
+		if (index == GNL_BUFFER_SIZE - 1)
 		{
 			read_next(fd_state);
 			token = token->next;
